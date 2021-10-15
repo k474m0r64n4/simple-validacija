@@ -61,47 +61,6 @@
                 <p id="message"></p>
             </form>
         </div>
-        <script>
-            onSubmit = (event) => {
-                const user = document.getElementById('username');
-                const pass = document.getElementById('password');
-                const iuser = document.getElementById('iconuser');
-                const ipass = document.getElementById('iconpass');
-                let msg = 'Successful login!';
-
-                if (user.value !== 'new_user') {
-                    msg = user.value === '' ? 'please, enter username' : 'please, enter valid username';
-                    user.style.outline = "1px solid red";
-                    iuser.classList.remove("fa-check");
-                    iuser.classList.add("fa-times");
-                    iuser.style.color = 'red';
-                } else {
-                    user.style.outline = "1px solid green";
-                    iuser.classList.remove("fa-times");
-                    iuser.classList.add("fa-check");
-                    iuser.style.color = 'green';
-                }
-
-                if (pass.value !== '123456789') {
-                    msg = pass.value === '' ? 'please, enter password' : 'please, enter valid password';
-                    pass.style.outline = "1px solid red";
-                    ipass.classList.remove("fa-check");
-                    ipass.classList.add("fa-times");
-                    ipass.style.color = 'red';
-                } else {
-                    pass.style.outline = "1px solid green";
-                    ipass.classList.remove("fa-times");
-                    ipass.classList.add("fa-check");
-                    ipass.style.color = 'green';
-                }
-
-                message.textContent = msg;
-                event.preventDefault();
-            }
-
-            const form = document.getElementById('form');
-            const message = document.getElementById('message');
-            form.addEventListener('submit', onSubmit);
-        </script>
+        
     </body>
 </html>
