@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet">
+        <title>Assignment 2 - Website Building</title>
+        <style>
+            body {
+                box-sizing: border-box;
+                font-family: sans-serif;
+            }
+
+            #login-container {
+                width: 460px;
+                margin: 0 auto;
+            }
+
+            form label,
+            form input {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            form input {
+                padding: 8px;
+            }
+
+            form label {
+                font-weight: bold;
+            }
+
+            form div {
+                position: relative;
+                margin: 16px 0;
+            }
+            .icon {
+                right: 10px;
+                top: 30px;
+                position: absolute;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="login-container">
+            <form id="form">
+                <div>
+                    <label for="username">Username:</label>
+                    <i id="iconuser" class="fas icon"></i>
+                    <input id="username" type="text">
+                </div>
+
+                <div>
+                    <label for="password">Password:</label>
+                    <i id="iconpass" class="fas icon"></i>
+                    <input id="password" type="password">
+                </div>
+
+                <input type="submit" value="Login">
+                <p id="message"></p>
+            </form>
+        </div>
+        <script>
+            onSubmit = (event) => {
+                const user = document.getElementById('username');
+                const pass = document.getElementById('password');
+                const iuser = document.getElementById('iconuser');
+                const ipass = document.getElementById('iconpass');
+                let msg = 'Successful login!';
+
+                if (user.value !== 'new_user') {
+                    msg = user.value === '' ? 'please, enter username' : 'please, enter valid username';
+                    user.style.outline = "1px solid red";
+                    iuser.classList.remove("fa-check");
+                    iuser.classList.add("fa-times");
+                    iuser.style.color = 'red';
+                } else {
+                    user.style.outline = "1px solid green";
+                    iuser.classList.remove("fa-times");
+                    iuser.classList.add("fa-check");
+                    iuser.style.color = 'green';
+                }
+
+                if (pass.value !== '123456789') {
+                    msg = pass.value === '' ? 'please, enter password' : 'please, enter valid password';
+                    pass.style.outline = "1px solid red";
+                    ipass.classList.remove("fa-check");
+                    ipass.classList.add("fa-times");
+                    ipass.style.color = 'red';
+                } else {
+                    pass.style.outline = "1px solid green";
+                    ipass.classList.remove("fa-times");
+                    ipass.classList.add("fa-check");
+                    ipass.style.color = 'green';
+                }
+
+                message.textContent = msg;
+                event.preventDefault();
+            }
+
+            const form = document.getElementById('form');
+            const message = document.getElementById('message');
+            form.addEventListener('submit', onSubmit);
+        </script>
+    </body>
+</html>
