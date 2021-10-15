@@ -12,7 +12,7 @@
             }
 
             #login-container {
-                width: 460px;
+                width: 420px;
                 margin: 0 auto;
             }
 
@@ -69,7 +69,7 @@
                 const ipass = document.getElementById('iconpass');
                 let msg = 'Successful login!';
 
-                if (user.value !== 'new_user') {
+                if (user.value !== 'admin') {
                     msg = user.value === '' ? 'please, enter username' : 'please, enter valid username';
                     user.style.outline = "1px solid red";
                     iuser.classList.remove("fa-check");
@@ -82,7 +82,7 @@
                     iuser.style.color = 'green';
                 }
 
-                if (pass.value !== '123456789') {
+                if (pass.value !== '012345678') {
                     msg = pass.value === '' ? 'please, enter password' : 'please, enter valid password';
                     pass.style.outline = "1px solid red";
                     ipass.classList.remove("fa-check");
